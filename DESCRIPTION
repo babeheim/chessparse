@@ -1,9 +1,11 @@
 Package: chessparse
-Title: What the Package Does (one line, title case)
+Title: tools for parsing chess game records stored in the PGN format
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
+Authors@R: person("Bret", "Beheim", email = "beheim@gmail.com", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
-Depends: R (>= 3.3.2)
-License: What license is it under?
+Depends: R (>= 3.3.2),
+  stringi,
+  digest
+License: CC0
 Encoding: UTF-8
 LazyData: true
