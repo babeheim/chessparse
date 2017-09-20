@@ -61,7 +61,7 @@ parse_pgn <- function(pgn_lines){
     moves <- unlist(strsplit(moves, " "))
   
     output <- meta
-    output$hash_id <- substr(sha1(moves), 1, 7) # lucky number!
+    output$hash_id <- substr(sha1(moves), 1, 13) # lucky number!
     output$moves <- moves
   }
   if( n_games > 1 ){
