@@ -19,6 +19,7 @@ df_list_to_dataframe <- function( input_list ){
 extract_tag <- function(pgn_tag){
   # pgn_tag <- iconv(pgn_tag, "latin1", "ASCII", sub="") # strip out non-ASCII entirely
   pgn_tag <- stringi::stri_trans_general(pgn_tag, "latin-ascii") # convert non-ASCII to closest ascii
+  pgn_tag <- gsub("[\x01-\x1F]", "", pgn_tag) # takes care of non-printing ASCII
   leading_space <- as.numeric(regexpr(" ", pgn_tag))
   key <- substr(pgn_tag, 2, leading_space-1)
   value <- substr(pgn_tag, leading_space+1, nchar(pgn_tag)-1)
