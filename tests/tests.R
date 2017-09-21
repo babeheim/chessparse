@@ -3,7 +3,8 @@ rm(list=ls())
 
 library(jsonlite)
 
-source('./R/read_pgn.R')
+library(devtools)
+devtools::load_all()
 
 file <- "./raw_data/test.pgn"
 pgn_lines <- readLines(file)
@@ -20,7 +21,18 @@ for(i in 1:n_games){
 }
 
 
-d <- read_pgn("ChessData (1).pgn")
+
+
+d <- read_pgn("./raw_data/test.pgn")
+dj <- toJSON(d)
+writeLines(dj, "test.json")
+d <- read_json('./test.json', simplifyVector=TRUE)
+
+
+
+
+
+d <- read_pgn("./raw_data/ChessData (1).pgn")
 dj <- toJSON(d)
 writeLines(dj, "test.json")
 d <- read_json('./test.json', simplifyVector=TRUE)
